@@ -9,7 +9,7 @@ async function main() {
             email: 'johndoe@gmail.com',
             avatarUrl: 'https://github.com/VictorDolzan.png',
         }
-    })
+    });
 
     const pool = await prisma.pool.create({
         data: {
@@ -23,7 +23,7 @@ async function main() {
                 }
             }
         }
-    })
+    });
 
     await prisma.game.create({
         data: {
@@ -31,7 +31,7 @@ async function main() {
             firstTeamCountryCode: 'DE',
             secountTeamCountryCode: 'BR'
         }
-    })
+    });
 
     await prisma.game.create({
         data: {

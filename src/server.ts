@@ -35,19 +35,19 @@ async function bootstrap(){
     fastify.post('/pools', async(request, response) => {
         const createPoolBody = z.object({
             title: z.string(),
-        })
+        });
 
         const { title } = createPoolBody.parse(request.body);
 
         const generate = new ShortUniqueId({ length: 6 });
-        const code = String(generate()).toUpperCase()
+        const code = String(generate()).toUpperCase();
 
         await prisma.pool.create({
             data: {
                 title,
                 code
             }
-        })
+        });
 
         return response.status(201).send({ code });
     });
